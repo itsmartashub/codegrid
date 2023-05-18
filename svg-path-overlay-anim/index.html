@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+		<link rel="stylesheet" href="css/main.css" />
+
+		<title>Full Screen Overlay Menu (w/ SVG Path Animation) Using HTML, CSS & GSAP | Awwwards Rebuild</title>
+	</head>
+	<body>
+		<h1 class="hero-title">purity of noise</h1>
+
+		<!-- toogle btn -->
+		<div class="btn" id="toggle-btn">
+			<div class="btn__outline btn__outline--1"></div>
+			<div class="btn__outline btn__outline--2"></div>
+			<div id="hamburger">
+				<span></span>
+			</div>
+		</div>
+
+		<!-- svg overlay -->
+		<div class="overlay">
+			<svg viewBox="0 0 1000 1000">
+				<path d="M0 2S175 1 500 1s500 1 500 1V0H0Z"></path>
+			</svg>
+		</div>
+
+		<!-- menu items -->
+		<main class="menu">
+			<section class="menu__left">
+				<div class="menu__container">
+					<div class="wrapper">
+						<div class="menu__item">
+							<a href="#"><span>I</span>Index</a>
+							<div class="menu__item-revealer"></div>
+						</div>
+						<div class="menu__item">
+							<a href="#"><span>II</span>Work</a>
+							<div class="menu__item-revealer"></div>
+						</div>
+						<div class="menu__item">
+							<a href="#"><span>III</span>About</a>
+							<div class="menu__item-revealer"></div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<section class="menu__right">
+				<div class="menu__container">
+					<div class="wrapper">
+						<div class="menu__item">
+							<a href="#">Speaker</a>
+							<div class="menu__item-revealer"></div>
+						</div>
+						<div class="menu__item">
+							<a href="#">Blog</a>
+							<div class="menu__item-revealer"></div>
+						</div>
+						<div class="menu__item">
+							<a href="#">Contact</a>
+							<div class="menu__item-revealer"></div>
+						</div>
+					</div>
+
+					<div class="wrapper">
+						<div class="menu__item">
+							<a href="#">Credits</a>
+							<div class="menu__item-revealer"></div>
+						</div>
+					</div>
+				</div>
+			</section>
+		</main>
+
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js"></script>
+		<script src="js/app.js"></script>
+	</body>
+</html>

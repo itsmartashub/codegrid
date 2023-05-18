@@ -1,0 +1,217 @@
+:root {
+  --bg: #e5e3dc;
+  --link-color: #e2e2dc;
+  --overlay-bg: #0a0a0a;
+}
+
+@font-face {
+  src: url("../fonts/Roslindale-DisplayCondensedRegular-Testing.woff") format("woff");
+  font-family: "Roslindale Display Condensed";
+  font-style: normal;
+  font-weight: normal;
+}
+@font-face {
+  src: url("../fonts/Ayer-Regular.woff") format("woff");
+  font-family: "Ayer";
+  font-style: normal;
+  font-weight: normal;
+}
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--bg);
+  font-family: "Roslindale Display Condensed", sans-serif;
+  overflow: hidden;
+}
+
+h1.hero-title {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 10vw;
+  font-weight: 400;
+  z-index: 0;
+}
+
+.overlay {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  z-index: 0;
+}
+
+svg path {
+  fill: var(--overlay-bg);
+}
+
+#toggle-btn {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100px;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 2em;
+  z-index: 2;
+  cursor: pointer;
+}
+#toggle-btn .btn__outline {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border: 1px solid var(--overlay-bg);
+}
+#toggle-btn .btn__outline--1 {
+  border-radius: 60% 40% 30% 70%/60% 30% 70% 40%;
+  animation: morph 4s linear infinite;
+}
+#toggle-btn .btn__outline--2 {
+  border-radius: 53% 47% 43% 57%/51% 39% 61% 49%;
+}
+#toggle-btn #hamburger {
+  --burger-size: 20px;
+  --burger-line-height: 1.25px;
+  --burger-line-width: 24px;
+  --burger-span-before-bgcolor: var(--overlay-bg);
+  position: relative;
+  width: var(--burger-size);
+  height: var(--burger-size);
+  z-index: 2;
+}
+#toggle-btn #hamburger span {
+  display: inline-block;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: var(--burger-line-width);
+  height: var(--burger-line-height);
+  background-color: var(--overlay-bg);
+  transition: transform 0.25s;
+}
+#toggle-btn #hamburger span::before {
+  display: inline-block;
+  position: absolute;
+  content: "";
+  width: calc(var(--burger-line-width) - 6px);
+  height: var(--burger-line-height);
+  background-color: var(--burger-span-before-bgcolor);
+  transform: translateY(-4px);
+  transition: transform 0.25s;
+}
+#toggle-btn #hamburger.active span {
+  transform: rotate(45deg);
+}
+#toggle-btn #hamburger.active span::before {
+  top: unset;
+  width: var(--burger-line-width);
+  transform: rotate(-90deg);
+}
+
+.menu {
+  position: fixed;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+}
+.menu section {
+  height: 100%;
+  display: flex;
+}
+.menu a {
+  position: relative;
+  top: 120px;
+  line-height: 70%;
+  text-decoration: none;
+  color: var(--link-color);
+}
+.menu a span {
+  font-family: "Ayer";
+  font-size: 20px;
+  margin-right: 2em;
+}
+.menu__container {
+  width: 70%;
+  height: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.menu__item {
+  position: relative;
+}
+.menu__item::after {
+  content: "";
+  position: absolute;
+  top: 100px;
+  left: -20px;
+  width: 120%;
+  height: 200%;
+  margin: 0 auto;
+  background-color: var(--overlay-bg);
+}
+.menu__left {
+  flex: 3;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.menu__left .wrapper {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.menu__left .menu__item:nth-child(1) a, .menu__left .menu__item:nth-child(3) a {
+  margin-left: 1em;
+}
+.menu__left a {
+  text-transform: uppercase;
+  font-size: 125px;
+  font-weight: 500;
+}
+.menu__right {
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 8em;
+}
+.menu__right .wrapper:nth-child(1) {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+.menu__right a {
+  font-family: "Ayer";
+  font-size: 36px;
+}
+
+@keyframes morph {
+  0% {
+    border-radius: 60% 40% 30% 70%/60% 30% 70% 40%;
+  }
+  50% {
+    border-radius: 30% 60% 70% 40%/50% 60% 30% 60%;
+  }
+  100% {
+    border-radius: 60% 40% 30% 70%/60% 30% 70% 40%;
+  }
+}/*# sourceMappingURL=main.css.map */
