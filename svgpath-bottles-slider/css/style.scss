@@ -1,0 +1,153 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	cursor: pointer;
+}
+
+:root {
+	--txt-color: #36301d;
+}
+@font-face {
+	src: url('../font/Roslindale-DisplayCondensedLight-Testing.woff') format('woff');
+	font-family: RoslindaleDCL;
+	font-style: normal;
+	font-weight: normal;
+}
+
+html,
+body {
+	width: 100%;
+	height: 100vh;
+	background-color: #fff;
+	color: var(--txt-color);
+	overflow: hidden;
+}
+
+.header {
+	&__nav {
+		position: fixed;
+		width: 100%;
+		padding: 2em;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		// font-family: 'Neue World Light', sans-serif;
+		font-family: RoslindaleDCL;
+		color: var(--txt-color);
+		font-size: 24px;
+		font-weight: 300;
+	}
+	&__title {
+		width: 100%;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		text-align: center;
+		// font-family: 'Neue World Light';
+		font-family: RoslindaleDCL;
+		color: var(--txt-color);
+		font-size: 10vw;
+		// font-weight: 300;
+		z-index: 1;
+	}
+}
+
+.wines {
+	position: relative;
+	width: 100%;
+	height: 100vh;
+	// opacity: 1; // samo prilikom develompenta
+	opacity: 0;
+	pointer-events: none;
+	z-index: 2;
+	border: 3px solid lightskyblue;
+
+	&__svgTransition {
+		border: 4px solid red;
+		position: absolute;
+		left: 0;
+		top: 0;
+		width: 100%;
+		height: 100%;
+		overflow: hidden;
+	}
+
+	#wrap {
+		// border: 5px solid lightgreen;
+		background-color: rgba(lightgreen, 0.35);
+		position: absolute;
+		left: 25%; // pogledaj sa i bez ovog
+		// width: 180%; // on je bio stavio 150% al je on imao 4 artikla, a ako imas vise artikla on pokusava da ih strpa u tih 150% i onda smanjuje width artikla (tj blockova), zato ja stavljam vise, a msm da moze i da se ne stavi nista za width, vec da on sam bira width
+		max-width: 400%;
+		height: 100vh;
+		display: flex;
+		align-items: center;
+		margin: 0 25%; // pogledaj sa i bez ovog
+	}
+	.block {
+		position: relative;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		z-index: 2;
+		width: 400px;
+		height: 500px;
+		margin: 0 1em;
+		background-color: #2e2918;
+		// overflow: hidden; // The content can be scrolled programmatically (for example, by setting the value of the scrollLeft property or the scrollTo() method), in which case. The element box is a scroll container. Element box is a scroll container.
+		overflow: clip; // isto kao i overflow: hidden samoThe element box is not a scroll container.  Programmatic scrolling is not supported.
+		clip-path: inset(0 0 0 0); // u GSAP cemo posle staviti inset(0 100% 0 0), sa leve strane ce se pojaviti .block
+
+		.product {
+			border: 2px solid #ecaa5d;
+			position: relative;
+			display: block;
+			width: 100% !important;
+			height: 100% !important;
+			height: auto; // ?????
+			padding: 4em;
+			z-index: 2;
+
+			img {
+				will-change: transform;
+				width: 100%;
+				height: 100%;
+				object-fit: contain;
+			}
+		}
+	}
+
+	#closeBtn {
+		position: absolute;
+		top: 0;
+		right: 0;
+		background: none; // ne moze background-color
+		border: none;
+		outline: none;
+		padding: 2em;
+		font-family: RoslindaleDCL;
+		font-size: 20px;
+		font-weight: 300;
+		color: #ecaa5d;
+		cursor: pointer;
+		pointer-events: all !important;
+	}
+}
+
+@media (max-width: 768px) {
+	.header__title {
+		font-size: 42px;
+	}
+
+	// WTF
+	.tagline {
+		font-size: 15px;
+	}
+
+	// WTF
+	.outline {
+		width: 92%;
+	}
+}
